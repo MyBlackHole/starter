@@ -62,57 +62,49 @@ return {
       },
     },
     opts = function()
-      local conf = require "nvchad.configs.telescope"
-
-      conf.defaults.mappings.i = {
-        ["<C-j>"] = require("telescope.actions").move_selection_next,
-        ["<Esc>"] = require("telescope.actions").close,
-      }
-
-      -- or
-      -- table.insert(conf.defaults.mappings.i, your table)
-
-      return conf
     end,
   },
-  { "mrjones2014/nvim-ts-rainbow" },
+  {
+    "mrjones2014/nvim-ts-rainbow",
+    event = { "BufRead" }
+  },
   -- 翻译
   {
     "voldikss/vim-translator",
     keys = {
       {
         "<leader>tt",
-        mode = {"v"},
+        mode = { "v" },
         "<cmd>Translate<cr>",
         desc = "Translate",
       },
       {
         "<leader>tr",
-        mode = {"v"},
+        mode = { "v" },
         "<cmd>TranslateR<cr>",
         desc = "TranslateR",
       },
       {
         "<leader>tl",
-        mode = {"v"},
+        mode = { "v" },
         "<cmd>TranslateL<cr>",
         desc = "TranslateL",
       },
       {
         "<leader>th",
-        mode = {"v"},
+        mode = { "v" },
         "<cmd>TranslateH<cr>",
         desc = "TranslateH",
       },
       {
         "<leader>tw",
-        mode = {"v"},
+        mode = { "v" },
         "<cmd>TranslateW<cr>",
         desc = "TranslateW",
       },
       {
         "<leader>tx",
-        mode = {"v"},
+        mode = { "v" },
         "<cmd>TranslateX<cr>",
         desc = "TranslateX",
       },
@@ -177,6 +169,8 @@ return {
   -- :Fitten login BlackHole 1358
   {
     "luozhiya/fittencode.nvim",
+    cmd = "Fitten",
+    event = { "BufRead" },
     config = function()
       require("fittencode").setup()
     end,
