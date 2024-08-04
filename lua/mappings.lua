@@ -6,5 +6,9 @@ local map = vim.keymap.set
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+map('n', 'grn', vim.lsp.buf.rename)
+map('n', 'gra', vim.lsp.buf.code_action)
+map('n', 'grr', vim.lsp.buf.references)
+map('i', '<C-s>', vim.lsp.buf.signature_help)
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
