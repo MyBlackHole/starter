@@ -22,11 +22,11 @@ map("n", "gra", vim.lsp.buf.code_action)
 map("n", "grr", vim.lsp.buf.references)
 map("i", "<C-s>", vim.lsp.buf.signature_help)
 
-map("n", "H", function()
+map("n", "L", function()
   require("nvchad.tabufline").next()
 end, { desc = "buffer goto next" })
 
-map("n", "L", function()
+map("n", "H", function()
   require("nvchad.tabufline").prev()
 end, { desc = "buffer goto prev" })
 
