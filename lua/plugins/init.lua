@@ -17,7 +17,6 @@ return {
     opts = {
       ensure_installed = {
         "vim",
-        "lua",
         "vimdoc",
         "html",
         "css",
@@ -61,12 +60,11 @@ return {
         desc = "Quickfix List (Trouble)",
       },
     },
-    opts = function()
-    end,
+    opts = function() end,
   },
   {
     "mrjones2014/nvim-ts-rainbow",
-    event = { "BufRead" }
+    event = { "BufRead" },
   },
   -- 翻译
   {
@@ -162,7 +160,7 @@ return {
   {
     "Mythos-404/xmake.nvim",
     lazy = true,
-    event = "BufReadPost xmake.lua",
+    -- event = "BufReadPost xmake.lua",
     config = true,
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
   },
@@ -173,6 +171,27 @@ return {
     event = { "BufRead" },
     config = function()
       require("fittencode").setup()
+    end,
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = { "BufRead" },
+    config = function()
+      require("codecompanion").setup {
+        strategies = {
+          chat = {
+            adapter = "ollama",
+          },
+          inline = {
+            adapter = "ollama",
+          },
+        },
+        debug = true,
+      }
     end,
   },
 }
